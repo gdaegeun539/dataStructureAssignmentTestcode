@@ -42,7 +42,7 @@ int main(){
                 puts("1. 선택정렬\n2. 삽입정렬\n3. 버블정렬\n4. 쉘정렬");
                 puts("5. 합병정렬\n6. 퀵정렬\n7. 힙정렬\n8. 기수정렬");
                 printf(">>>");
-                scanf("%d", sortmod[i_for]);
+                scanf("%d", &sortmod[i_for]);
             }while( sortmod[i_for] < 1 || sortmod[i_for] > 8 );
         }
         if(sortmod[0] > sortmod[1]){
@@ -178,61 +178,59 @@ double do_sort(int arr[], int size_init, int sortmod, int max_digit){
 //결과 출력부 함수
 void print_output(int arr[], int sortmod, int size_init, double during_time){
     FILE* fp = NULL;
-    char writename[9] = {"", "Data_Sort1.txt", "Data_Sort2.txt", "Data_Sort3.txt", "Data_Sort4.txt"
-    , "Data_Sort5.txt", "Data_Sort6.txt", "Data_Sort7.txt", "Data_Sort8.txt"};
     
     switch (sortmod){
     case 1: //선택정렬
-        fp = fopen(writename[1], "wt");
+        fp = fopen("Data_Sort1.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("선택정렬: %lf초\n", during_time);
         break;
     case 2: //삽입정렬
-        fp = fopen(writename[2], "wt");
+        fp = fopen("Data_Sort2.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("삽입정렬: %lf초\n", during_time);
         break;
     case 3: //버블정렬
-        fp = fopen(writename[3], "wt");
+        fp = fopen("Data_Sort3.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("버블정렬: %lf초\n", during_time);
         break;
     case 4: //쉘정렬
-        fp = fopen(writename[4], "wt");
+        fp = fopen("Data_Sort4.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("쉘정렬: %lf초\n", during_time);
         break;
     case 5: //합병정렬
-        fp = fopen(writename[5], "wt");
+        fp = fopen("Data_Sort5.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("합병정렬: %lf초\n", during_time);
         break;
     case 6: //퀵정렬
-        fp = fopen(writename[6], "wt");
+        fp = fopen("Data_Sort6.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("퀵정렬: %lf초\n", during_time);
         break;
     case 7: //힙정렬
-        fp = fopen(writename[7], "wt");
+        fp = fopen("Data_Sort7.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("힙정렬: %lf초\n", during_time);
         break;
     case 8: //기수정렬
-        fp = fopen(writename[8], "wt");
+        fp = fopen("Data_Sort8.txt", "wt");
         for (int i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
