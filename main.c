@@ -30,15 +30,23 @@ int main(){
         //파일 선택 부분
         do{
             puts("정렬을 수행할 파일을 고르세요.");
-            puts("1. 정렬될 파일\n2. 역정렬된 파일\n3. 랜덤 파일\n0.종료");
+            puts("1. 정렬될 파일\n2. 역정렬된 파일\n3. 랜덤 파일\n0. 종료");
             printf(">>>");
             scanf("%d", &sel_file);
         }while( sel_file < 0 || sel_file > 3 );
+
+        //종료 선택시 바로 프로그램 종료
+        if(sel_file == 0){
+            fclose(sort_file);
+            fclose(dessort_file);
+            fclose(rand_file);
+            return 0;
+        }
         
         //정렬모드 선택 부분
         for( int i_for = 0; i_for < SORTMOD; i_for++ ){
             do{
-                puts("%d번째로 사용할 정렬방식을 고르세요.");
+                printf("%d번째로 사용할 정렬방식을 고르세요.\n", i_for);
                 puts("1. 선택정렬\n2. 삽입정렬\n3. 버블정렬\n4. 쉘정렬");
                 puts("5. 합병정렬\n6. 퀵정렬\n7. 힙정렬\n8. 기수정렬");
                 printf(">>>");
@@ -94,7 +102,7 @@ int main(){
             print_output(st_arr2, sortmod[1], size_init, time_many[1]);
         }
 
-    }while(sel_file != 0);
+    }while(1);
     
     fclose(sort_file);
     fclose(dessort_file);
