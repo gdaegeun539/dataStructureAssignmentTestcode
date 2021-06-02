@@ -129,7 +129,7 @@ int get_flgth(FILE* fp, int* max_digit){
             digit++;
         }
     }
-    (*max_digit)--;
+    //(*max_digit)--; //--> Linux 상에서 CRLF text파일 읽을 때에 추가
     fseek(fp, 0, SEEK_SET);
     return lgth;
 }
@@ -189,60 +189,61 @@ double do_sort(int arr[], int size_init, int sortmod, int max_digit){
 //결과 출력부 함수
 void print_output(int arr[], int sortmod, int size_init, double during_time){
     FILE* fp = NULL;
+    int i_for;
     
     switch (sortmod){
     case 1: //선택정렬
         fp = fopen("Data_Sort1.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("선택정렬: %lf초\n", during_time);
         break;
     case 2: //삽입정렬
         fp = fopen("Data_Sort2.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("삽입정렬: %lf초\n", during_time);
         break;
     case 3: //버블정렬
         fp = fopen("Data_Sort3.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("버블정렬: %lf초\n", during_time);
         break;
     case 4: //쉘정렬
         fp = fopen("Data_Sort4.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("쉘정렬: %lf초\n", during_time);
         break;
     case 5: //합병정렬
         fp = fopen("Data_Sort5.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("합병정렬: %lf초\n", during_time);
         break;
     case 6: //퀵정렬
         fp = fopen("Data_Sort6.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("퀵정렬: %lf초\n", during_time);
         break;
     case 7: //힙정렬
         fp = fopen("Data_Sort7.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("힙정렬: %lf초\n", during_time);
         break;
     case 8: //기수정렬
         fp = fopen("Data_Sort8.txt", "wt");
-        for (int i_for = 0; i_for < size_init; i_for++){
+        for (i_for = 0; i_for < size_init; i_for++){
             fprintf(fp, "%d\n", arr[i_for]);
         }
         printf("기수정렬: %lf초\n", during_time);
