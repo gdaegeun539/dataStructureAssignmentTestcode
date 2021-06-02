@@ -3,7 +3,7 @@
 #define __FAST_SORT_H__
 
 #include "fifo_queue.h"
-#include "min_heap.h"
+#include "max_heap.h"
 #define BUCKETS 10
 
 extern void radix_sort(int[], int, int);

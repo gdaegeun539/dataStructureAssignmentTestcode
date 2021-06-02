@@ -46,7 +46,7 @@ int main(){
         //정렬모드 선택 부분
         for( int i_for = 0; i_for < SORTMOD; i_for++ ){
             do{
-                printf("%d번째로 사용할 정렬방식을 고르세요.\n", i_for);
+                printf("%d번째로 사용할 정렬방식을 고르세요.\n", i_for + 1);
                 puts("1. 선택정렬\n2. 삽입정렬\n3. 버블정렬\n4. 쉘정렬");
                 puts("5. 합병정렬\n6. 퀵정렬\n7. 힙정렬\n8. 기수정렬");
                 printf(">>>");
@@ -95,9 +95,11 @@ int main(){
         //출력부
         //모드가 같을 때는 하나만 출력
         if(sortmod[0] == sortmod[1]){
+            printf("정렬이후 마지막 요소 판단 - %d\n", st_arr1[size_init]);
             print_output(st_arr1, sortmod[0], size_init, time_many[0]);
         }
         else{
+            printf("정렬이후 마지막 요소 판단 - %d %d \n", st_arr1[size_init-1], st_arr2[size_init-1]);
             print_output(st_arr1, sortmod[0], size_init, time_many[0]);
             print_output(st_arr2, sortmod[1], size_init, time_many[1]);
         }
@@ -116,7 +118,7 @@ int get_flgth(FILE* fp, int* max_digit){
     int digit = 0;
 
     while ( !feof(fp) ){
-        if( fseek(fp, 1, SEEK_CUR) == "\n"){
+        if( fgetc(fp) == '\n'){
             lgth++;
             if(digit > *max_digit){
                 *max_digit = digit;
@@ -127,6 +129,7 @@ int get_flgth(FILE* fp, int* max_digit){
             digit++;
         }
     }
+    (*max_digit)--;
     fseek(fp, 0, SEEK_SET);
     return lgth;
 }

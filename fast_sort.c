@@ -39,7 +39,7 @@ int compare(const void *arg1, const void *arg2){
 //합병정렬 정렬부 함수
 void merge(int list[], int left, int mid, int right, int size_init){
     int i, j, k, l;
-    element* sorted = calloc(sizeof(element), size_init);
+    element* sorted = (element*)calloc(sizeof(element), size_init);
     i=left; j=mid+1; k=left;
     
     // 분할 정렬된 list의 합병
@@ -94,10 +94,10 @@ void heap_sort(elm_heap a[], int size_init){
     init(h, size_init);
     
     for (i = 0; i<size_init; i++) {
-        insert_min_heap(h, a[i]);
+        insert_max_heap(h, a[i]);
     }
     for (i = (size_init - 1); i >= 0; i--) {
-        a[i] = delete_min_heap(h);
+        a[i] = delete_max_heap(h);
     }
     
     free(h->heap);
